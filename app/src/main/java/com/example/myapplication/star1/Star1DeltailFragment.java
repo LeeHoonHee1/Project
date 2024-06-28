@@ -1,20 +1,20 @@
 package com.example.myapplication.star1;
 
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.myapplication.R;
 
-public class Star1Fragment extends Fragment {
+public class Star1DeltailFragment extends Fragment {
 
-    public Star1Fragment() {
+    public Star1DeltailFragment() {
         // Required empty public constructor
     }
 
@@ -22,9 +22,9 @@ public class Star1Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_star1, container, false);
+        View view = inflater.inflate(R.layout.fragment_star1_detail, container, false);
 
-        ImageView buttonOpenDetail = view.findViewById(R.id.img_noodle);
+        TextView buttonOpenDetail = view.findViewById(R.id.tv_back);
         buttonOpenDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,7 +37,7 @@ public class Star1Fragment extends Fragment {
 
     private void openDetailFragment() {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.container, new Star1DeltailFragment());
+        transaction.replace(R.id.container, new Star1Fragment());
         transaction.addToBackStack(null);
         transaction.commit();
     }
